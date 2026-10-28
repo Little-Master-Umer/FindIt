@@ -10,12 +10,12 @@ class ItemDetailsScreen extends StatelessWidget {
   final Function(String reportId)? onMarkRecoveredTap;
 
   const ItemDetailsScreen({
-    Key? key,
+    super.key,
     required this.report,
     required this.currentUser,
     required this.onFoundThisTap,
     this.onMarkRecoveredTap,
-  }) : super(key: key);
+  });
 
   Color _getStatusBg(String status) {
     switch (status) {
@@ -73,8 +73,10 @@ class ItemDetailsScreen extends StatelessWidget {
           children: [
             // Main Details Card
             Card(
-              shape: RoundedCornerShape(16),
-              elevation = 1,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(16),
+              ),
+              elevation: 1,
               child: Padding(
                 padding: const EdgeInsets.all(18.0),
                 child: Column(
@@ -258,7 +260,9 @@ class ItemDetailsScreen extends StatelessWidget {
             // Finder Information Card (if available)
             if (isFinderFound || (isRecovered && report.finderName != null)) ...[
               Card(
-                shape: RoundedCornerShape(16),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(16),
+                ),
                 color: const Color(0xFFDBEAFE),
                 child: Padding(
                   padding: const EdgeInsets.all(16.0),
@@ -358,7 +362,9 @@ class ItemDetailsScreen extends StatelessWidget {
                   style: ElevatedButton.styleFrom(
                     backgroundColor: primaryTeal,
                     foregroundColor: Colors.white,
-                    shape: RoundedCornerShape(12),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(12),
+                    ),
                   ),
                 ),
               ),
@@ -385,7 +391,9 @@ class ItemDetailsScreen extends StatelessWidget {
                   style: ElevatedButton.styleFrom(
                     backgroundColor: const Color(0xFF15803D),
                     foregroundColor: Colors.white,
-                    shape: RoundedCornerShape(12),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(12),
+                    ),
                   ),
                 ),
               ),

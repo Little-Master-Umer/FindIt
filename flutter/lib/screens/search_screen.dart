@@ -9,11 +9,11 @@ class SearchScreen extends StatefulWidget {
   final Function(ItemReport) onItemTap;
 
   const SearchScreen({
-    Key? key,
+    super.key,
     required this.reports,
     this.initialCategory,
     required this.onItemTap,
-  }) : super(key: key);
+  });
 
   @override
   _SearchScreenState createState() => _SearchScreenState();

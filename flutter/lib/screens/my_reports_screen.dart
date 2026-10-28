@@ -12,14 +12,14 @@ class MyReportsScreen extends StatelessWidget {
   final VoidCallback onSwitchUser;
 
   const MyReportsScreen({
-    Key? key,
+    super.key,
     required this.currentUser,
     required this.allReports,
     required this.onViewDetails,
     required this.onMarkRecovered,
     required this.onCreateReport,
     required this.onSwitchUser,
-  }) : super(key: key);
+  });
 
   void _showRecoverDialog(BuildContext context, ItemReport report) {
     showDialog(
@@ -174,7 +174,7 @@ class MyReportsScreen extends StatelessWidget {
                             'You have not submitted any lost or found items under ${currentUser.name}.',
                             style: const TextStyle(
                                 fontSize: 13, color: Color(0xFF6B7280)),
-                            textAlign: TextAlign.Center,
+                            textAlign: TextAlign.center,
                           ),
                           const SizedBox(height: 16),
                           ElevatedButton.icon(
@@ -184,7 +184,9 @@ class MyReportsScreen extends StatelessWidget {
                             style: ElevatedButton.styleFrom(
                               backgroundColor: primaryTeal,
                               foregroundColor: Colors.white,
-                              shape: RoundedCornerShape(12),
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(12),
+                              ),
                             ),
                           ),
                         ],
@@ -200,7 +202,9 @@ class MyReportsScreen extends StatelessWidget {
                       final isRecovered = item.status == 'Recovered';
 
                       return Card(
-                        shape: RoundedCornerShape(16),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(16),
+                        ),
                         margin: const EdgeInsets.only(bottom: 12),
                         child: Padding(
                           padding: const EdgeInsets.all(16.0),
@@ -306,7 +310,10 @@ class MyReportsScreen extends StatelessWidget {
                                     child: OutlinedButton(
                                       onPressed: () => onViewDetails(item),
                                       style: OutlinedButton.styleFrom(
-                                        shape: RoundedCornerShape(10),
+                                        shape: RoundedRectangleBorder(
+                                          borderRadius:
+                                              BorderRadius.circular(10),
+                                        ),
                                       ),
                                       child: const Text('View Details',
                                           style: TextStyle(fontSize: 12)),
@@ -323,7 +330,10 @@ class MyReportsScreen extends StatelessWidget {
                                           backgroundColor:
                                               const Color(0xFF15803D),
                                           foregroundColor: Colors.white,
-                                          shape: RoundedCornerShape(10),
+                                          shape: RoundedRectangleBorder(
+                                            borderRadius:
+                                                BorderRadius.circular(10),
+                                          ),
                                         ),
                                         child: const Text(
                                           'Mark Recovered',

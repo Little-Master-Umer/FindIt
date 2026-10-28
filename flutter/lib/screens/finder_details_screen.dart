@@ -10,11 +10,11 @@ class FinderDetailsScreen extends StatefulWidget {
       String foundLocation, String message) onSubmitFinder;
 
   const FinderDetailsScreen({
-    Key? key,
+    super.key,
     required this.report,
     required this.currentUser,
     required this.onSubmitFinder,
-  }) : super(key: key);
+  });
 
   @override
   _FinderDetailsScreenState createState() => _FinderDetailsScreenState();
@@ -95,8 +95,10 @@ class _FinderDetailsScreenState extends State<FinderDetailsScreen> {
             children: [
               // Summary card of the item found
               Card(
-                shape: RoundedCornerShape(12),
-                elevation = 0,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(12),
+                ),
+                elevation: 0,
                 color: Colors.white,
                 child: Padding(
                   padding: const EdgeInsets.all(14.0),
@@ -270,7 +272,9 @@ class _FinderDetailsScreenState extends State<FinderDetailsScreen> {
                   style: ElevatedButton.styleFrom(
                     backgroundColor: primaryTeal,
                     foregroundColor: Colors.white,
-                    shape: RoundedCornerShape(12),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(12),
+                    ),
                   ),
                 ),
               ),

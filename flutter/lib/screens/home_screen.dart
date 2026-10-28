@@ -16,7 +16,7 @@ class HomeScreen extends StatelessWidget {
   final VoidCallback onSeeAllTap;
 
   const HomeScreen({
-    Key? key,
+    super.key,
     required this.currentUser,
     required this.reports,
     required this.onReportTap,
@@ -25,7 +25,7 @@ class HomeScreen extends StatelessWidget {
     required this.onItemTap,
     required this.onSwitchUserTap,
     required this.onSeeAllTap,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -116,7 +116,9 @@ class HomeScreen extends StatelessWidget {
           children: [
             // Welcome Card
             Card(
-              shape: RoundedCornerShape(16),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(16),
+              ),
               elevation: 0,
               color: Colors.white,
               child: Padding(

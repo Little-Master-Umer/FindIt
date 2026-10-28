@@ -7,11 +7,11 @@ class CategoryTile extends StatelessWidget {
   final VoidCallback onTap;
 
   const CategoryTile({
-    Key? key,
+    super.key,
     required this.category,
     required this.isSelected,
     required this.onTap,
-  }) : super(key: key);
+  });
 
   IconData _getCategoryIcon(String cat) {
     switch (cat) {
@@ -30,7 +30,7 @@ class CategoryTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-    final primaryColor = const Color(0xFF0F766E);
+    const primaryColor = Color(0xFF0F766E);
 
     return InkWell(
       onTap: onTap,

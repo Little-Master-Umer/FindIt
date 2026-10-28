@@ -9,11 +9,11 @@ class ReportScreen extends StatefulWidget {
   final Function(ItemReport newReport) onReportCreated;
 
   const ReportScreen({
-    Key? key,
+    super.key,
     this.initialType = 'Lost',
     required this.currentUser,
     required this.onReportCreated,
-  }) : super(key: key);
+  });
 
   @override
   _ReportScreenState createState() => _ReportScreenState();
@@ -227,7 +227,7 @@ class _ReportScreenState extends State<ReportScreen> {
               ),
               const SizedBox(height: 6),
               DropdownButtonFormField<String>(
-                value: _selectedCategory,
+                initialValue: _selectedCategory,
                 decoration: _inputDecoration('Select category'),
                 items: _categories.map((cat) {
                   return DropdownMenuItem(value: cat, child: Text(cat));
@@ -325,7 +325,9 @@ class _ReportScreenState extends State<ReportScreen> {
                   style: ElevatedButton.styleFrom(
                     backgroundColor: primaryTeal,
                     foregroundColor: Colors.white,
-                    shape: RoundedCornerShape(12),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(12),
+                    ),
                   ),
                   child: Text(
                     _reportType == 'Lost'

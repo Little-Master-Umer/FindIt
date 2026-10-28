@@ -7,10 +7,10 @@ class ItemCard extends StatelessWidget {
   final VoidCallback onTap;
 
   const ItemCard({
-    Key? key,
+    super.key,
     required this.report,
     required this.onTap,
-  }) : super(key: key);
+  });
 
   Color _getStatusBg(String status) {
     switch (status) {
@@ -43,8 +43,10 @@ class ItemCard extends StatelessWidget {
     final isLost = report.type == 'Lost';
 
     return Card(
-      elevation = 2,
-      shape: RoundedCornerShape(16),
+      elevation: 2,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(16),
+      ),
       margin: const EdgeInsets.only(bottom: 12),
       child: InkWell(
         onTap: onTap,
@@ -106,7 +108,7 @@ class ItemCard extends StatelessWidget {
                       color: _getStatusBg(report.status),
                       borderRadius: BorderRadius.circular(12),
                       border: Border.all(
-                        color: _getStatusText(report.status).withOpacity(0.3),
+                        color: _getStatusText(report.status).withValues(alpha: 0.3),
                       ),
                     ),
                     child: Text(

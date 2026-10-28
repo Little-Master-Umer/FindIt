@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 class SplashScreen extends StatelessWidget {
   final VoidCallback onGetStarted;
 
-  const SplashScreen({Key? key, required this.onGetStarted}) : super(key: key);
+  const SplashScreen({super.key, required this.onGetStarted});
 
   @override
   Widget build(BuildContext context) {
@@ -66,7 +66,7 @@ class SplashScreen extends StatelessWidget {
                   fontWeight: FontWeight.w600,
                   color: Color(0xFF1F2937),
                 ),
-                textAlign: TextAlign.Center,
+                textAlign: TextAlign.center,
               ),
 
               const SizedBox(height: 12),
@@ -78,7 +78,7 @@ class SplashScreen extends StatelessWidget {
                   color: Color(0xFF4B5563),
                   height: 1.4,
                 ),
-                textAlign: TextAlign.Center,
+                textAlign: TextAlign.center,
               ),
 
               const Spacer(),
@@ -92,7 +92,9 @@ class SplashScreen extends StatelessWidget {
                   style: ElevatedButton.styleFrom(
                     backgroundColor: primaryTeal,
                     foregroundColor: Colors.white,
-                    shape: RoundedCornerShape(14),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(14),
+                    ),
                     elevation: 0,
                   ),
                   child: const Row(

@@ -15,7 +15,7 @@ void main() {
 
 /// Root Application Widget with Material 3 Teal Theme
 class FindItApp extends StatelessWidget {
-  const FindItApp({Key? key}) : super(key: key);
+  const FindItApp({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -51,7 +51,7 @@ class FindItApp extends StatelessWidget {
 
 /// Main StatefulWidget managing in-memory report state and BottomNavigationBar
 class MainNavigationHolder extends StatefulWidget {
-  const MainNavigationHolder({Key? key}) : super(key: key);
+  const MainNavigationHolder({super.key});
 
   @override
   _MainNavigationHolderState createState() => _MainNavigationHolderState();
@@ -152,7 +152,9 @@ class _MainNavigationHolderState extends State<MainNavigationHolder> {
                   : (user.id == 'user_ahmed' ? 'Finder' : 'Student');
 
               return ListTile(
-                shape: RoundedCornerShape(10),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10),
+                ),
                 selected: isSelected,
                 selectedTileColor: const Color(0xFFE0F2FE),
                 leading: CircleAvatar(
@@ -177,7 +179,7 @@ class _MainNavigationHolderState extends State<MainNavigationHolder> {
                   );
                 },
               );
-            }).toList(),
+            }),
           ],
         ),
       ),
